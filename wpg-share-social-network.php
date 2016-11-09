@@ -1,6 +1,6 @@
 <?php
 
-namespace WPG\ShareSocialNetwork;
+namespace Globalis\ShareSocialNetwork;
 
 function get_sharelink_facebook($link = false) {
         if(!$link) {
