@@ -1,5 +1,4 @@
 <?php
-namespace Globalis\SF\ShareSocialNetwork;
 
 function get_clean_and_safe_text($text) {
     return htmlspecialchars(urlencode(html_entity_decode($text, ENT_COMPAT, 'UTF-8')));
