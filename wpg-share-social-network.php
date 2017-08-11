@@ -25,24 +25,20 @@ function get_sharelink_twitter($args = false)
     if (!isset($args['title'])) {
         $args['title'] = get_the_title();
     }
-    if (!isset($args['via'])) {
-        if (defined(WPG_TWITTER_USERNAME)) {
-            $args['via'] = WPG_TWITTER_USERNAME;
-        } else {
-            $args['via'] = false;
-        }
+    if (!isset($args['via']) && defined('WPG_TWITTER_USERNAME')) {
+        $args['via'] = WPG_TWITTER_USERNAME;
     }
-
     $base = 'https://twitter.com/intent/tweet';
     $text = '?text='.get_clean_and_safe_text($args['title']);
     $url  = '&url='.get_clean_and_safe_text($args['link']);
-    $via  = '';
+    $link = $base . $text . $url;
 
-    if ($args['via']) {
+    if (isset($args['via'])) {
         $via = '&via='.get_clean_and_safe_text($args['via']);
+        $link .= $via
     }
 
-    return $base . $text . $url . $via;
+    return $link;
 }
 
 function get_sharelink_linkedin($args = false)
