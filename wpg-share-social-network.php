@@ -26,8 +26,8 @@ function get_sharelink_twitter($args = false)
         $args['title'] = get_the_title();
     }
     if (!isset($args['via'])) {
-        if (defined(TWITTER_USERNAME)) {
-            $args['via'] = TWITTER_USERNAME;
+        if (defined(WPG_TWITTER_USERNAME)) {
+            $args['via'] = WPG_TWITTER_USERNAME;
         } else {
             $args['via'] = false;
         }
