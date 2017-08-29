@@ -35,7 +35,7 @@ function get_sharelink_twitter($args = false)
 
     if (isset($args['via'])) {
         $via = '&via='.get_clean_and_safe_text($args['via']);
-        $link .= $via
+        $link .= $via;
     }
 
     return $link;
